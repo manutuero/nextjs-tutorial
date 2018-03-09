@@ -1,23 +1,38 @@
-import Layout from '../components/MyLayout'
-import fetch from 'isomorphic-unfetch'
+import Layout from '../components/MyLayout.js'
+import Markdown from "react-markdown";
 
-const Post = (props) => (
+export default (props) => (
     <Layout>
-        <h1>{props.show.name}</h1>
-        <p>{props.show.summary.replace(/<[/]?[pb]>/g, '')}</p>{/* De donde sale props.show.image.summary ? el replace estoy casi seguro que es nativo de js, y que usa regex*/}
-        <img src={props.show.image.medium}/>
+        <h1>{props.url.query.title}</h1>
+        <div classname="markdown">
+            <Markdown source={`
+            This is our blog post.
+            Yes. We can have a [link](/link).
+            And we can have a title as well.
+            ### This is a title
+            
+            And here's the content.
+            `}/>
+        </div>
+        <style jsx>{`
+            .markdown {
+                font-family: 'Arial';
+            }
+
+            .markdown a {
+                text-decoration: none;
+                color: blue;
+            }
+
+            .markdown a:hover {
+                opacity: 0.6;
+            }
+
+            .markdown h3 {
+                margin: 0;
+                padding: 0;
+                text-transform: uppercase;
+            }
+        `}</style>
     </Layout>
 )
-
-// De donde sale el objeto contexto ?
-Post.getInitialProps = async function(context) {
-    const {id} = context.query // destructuracion :p
-    const res = await fetch(`https://api.tvmaze.com/shows/${id}`)
-    const show = await res.json()
-
-    console.log(`Fetched show: ${show.name}`)
-
-    return { show }
-}
-
-export default Post
