@@ -1,16 +1,16 @@
-/*** Next.js ***/
+# Next.js
 Es una libreria de javascript con la que podemos construir aplicaciones web de manera sencilla
 sin tener que preocuparnos por como enrutar ni otras cuestiones mas complejas.
 
-* Caracteristicas:
+### Caracteristicas:
 - Server-render por default.
-- DivisiÛn de cÛdigo autom·tico para cargas de p·gina m·s r·pidas.
-- Enrutamiento simple del lado del cliente (basado en la p·gina).
-- Entorno de desarrollo basado en Webpack que admite el reemplazo de mÛdulos activos (HMR).
+- Divisi√≥n de c√≥digo autom√°tico para cargas de p√°gina m√°s r√°pidas.
+- Enrutamiento simple del lado del cliente (basado en la p√°gina).
+- Entorno de desarrollo basado en Webpack que admite el reemplazo de m√≥dulos activos (HMR).
 - Capaz de implementar con Express o cualquier otro servidor HTTP Node.js.
 - Personalizable con sus propias configuraciones de Babel y Webpack.
 
-/** Navegacion del lado del cliente (Client-side navigation) **/
+### Navegacion del lado del cliente (Client-side navigation)
 Next.js posee por default un historial de las paginas solicitadas llamado
 'location.history', que nos permite navegar completamente entre las paginas del browser de nuestra
 aplicacion, sin tener que volver a hacer una request al servidor, como ocurriria con un 
@@ -22,17 +22,18 @@ propiedades de routing.
 Podemos utilizar cualquier componente dentro de un Link, siempre y cuando acepten la propiedad
 onClick.
 
-/** Usando componentes compartidos **/
+### Usando componentes compartidos
 Podemos importar nuestros componentes desde cualquier directorio y nombrarlos como queramos,
 el unico directorio especial es 'pages'.
 
 
-/** Crear paginas dinamicas **/
+### Crear paginas dinamicas
 Podemos crear paginas web dinamicas usando query strings.
 Podemos pasar data a traves de parametros de las"query strings" de una URL.
-Ej.: <Link href={`/post?title=${props.title}`}> // Utilizamos tambien las Template Strings de ES6.
+- Ej.: <Link href={`/post?title=${props.title}`}>
+Utilizamos tambien las Strings Templates de ES6.
 
-Importante:
+## Importante
 - Cada pagina recibe una propiedad llamada "URL" la cual contiene informacion de la URL actual.
   (Esta propiedad solo esta expuesta al componente principal de la pagina).
 - Podemos usar el objeto "query", pues contiene la "query string".
@@ -41,12 +42,10 @@ Importante:
 Una pagina podria necesitar mas informacion a renderizar, o podriamos querer que las URLs
 queden mas limpias y claras, esto puede mejorarse, pero es un comienzo.
 
-/** Enmascaramiento de ruta (Route Masking) **/
-Es una caracteristica unica de Next.js que mostrar· una URL diferente en el navegador 
-que la URL real que ve su aplicaciÛn.
+### Enmascaramiento de ruta (Route Masking)
+Es una caracteristica unica de Next.js que mostrar√° una URL diferente en el navegador 
+que la URL real que ve su aplicaci√≥n.
 Con la propiedad "as" utilizamos un alias, tomando el id de cada componente PostLink.
 
 Si utilizamos el boton atras o adelante del navegador, navegaremos perfectamente entre las paginas
 ya que el route masking funciona perfectamente con el historial de navegador.
-
-
